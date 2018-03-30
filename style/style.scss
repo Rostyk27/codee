@@ -1,0 +1,99 @@
+$fb: 30px;
+$fp: 16px;
+$cl: #22bbb4;
+$tx: #000;
+$ff: 'Gotham Pro', sans-serif;
+$codee: 'Josefin Sans';
+
+@import 'parts/00_mixins';
+@import 'parts/01_reset';
+
+
+.button {
+  @extend %ani;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  color: #f7f7f7;
+  letter-spacing: 0.05em;
+  min-width: 120px;
+  padding: 8px 20px;
+  background: transparent;
+  border: 2px solid #f7f7f7;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  &:after {
+    @extend %ani;
+    @include transform(skewX(30deg));
+    content: '';
+    position: absolute;
+    left: -10%;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    background: #f7f7f7;
+    z-index: -1;
+  }
+  @include hover {
+    color: $cl;
+    cursor: pointer;
+    &:after {
+      left: -10%;
+      width: 120%;
+    }
+  }
+  & + .button {margin-left: 7px}
+}
+
+.codee {
+  font-family: $codee;
+  color: #fff;
+  span, b {color: $cl}
+}
+.codee_dev {
+  span {
+    display: inline-block;
+    @include transition(all, 0.15s, ease-in-out);
+  }
+  &:hover {
+    span {
+      &:first-child {@include transform(translateX(-3px))}
+      &:last-child {@include transform(translateX(3px))}
+    }
+  }
+}
+
+p {padding-bottom: rem(15)}
+
+h1 {
+  font-size: rem(64);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+h2 {
+  font-size: rem(40);
+  font-family: $ff;
+  font-weight: 700;
+  color: $cl;
+  text-align: center;
+  padding-bottom: rem(30);
+}
+
+.content {}
+
+section {padding: rem(90) 0}
+
+.page404 {padding: rem(60) 0}
+
+
+@import 'parts/02_base';
+@import 'parts/03_apps';
+@import 'parts/04_header';
+@import 'parts/05_footer';
+
+@import 'templates/00_naz';
+@import 'templates/01_ros';

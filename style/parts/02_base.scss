@@ -1,0 +1,236 @@
+// base classes
+
+// swiper controls
+.swiper-container {
+  .custom_prev, .custom_next {
+    @extend %ani;
+    @include center(false, true);
+    font-size: rem(54);
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+    &.swiper-button-disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+  .custom_prev {left: rem(30)}
+  .custom_next {right: rem(30)}
+  .swiper-pagination {
+    bottom: 30px !important;
+    .swiper-pagination-bullet {
+      opacity: 1;
+      border: 1px solid $cl;
+      background: transparent;
+      @include hover {
+        opacity: 1;
+        background: $cl;
+      }
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+        background: $cl;
+      }
+    }
+  }
+}
+
+
+// cf7
+div.wpcf7 {
+  position: relative;
+  .wpcf7-form-control-wrap {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: rem(25);
+    &:after {
+      @include transition(all, 0.6s, ease-in-out);
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: $cl;
+    }
+    &.is_active:after {
+      left: 75%;
+      width: 100%;
+    }
+  }
+  .wpcf7-not-valid-tip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 45px;
+    font: 400 16px/45px $ff;
+    color: #ff5f5f;
+    padding: 0 10px;
+    background: #fff;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 2px solid #ff5f5f;
+    cursor: pointer;
+  }
+  .wpcf7-response-output {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    font: 400 16px/1.4 $ff;
+    color: #fff;
+    padding: rem(7) rem(10);
+    border-radius: 0;
+    text-align: center;
+    &.wpcf7-mail-sent-ng {background: #1091ae; position: relative; margin-top: rem(30)}
+    &.wpcf7-mail-sent-ok {background: #16a085; position: relative; margin-top: rem(30)}
+    &.wpcf7-validation-errors, &.wpcf7-spam-blocked {background: #ff5f5f; position: relative; margin-top: rem(30)}
+  }
+  input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]), textarea {
+    display: block;
+    height: 45px;
+    font: 400 16px $ff;
+    color: #fff;
+    padding: 0;
+    border: none;
+    border-bottom: 2px solid #f7f7f7;
+    background: transparent;
+    @include placeholder {color: #e9e9e9; opacity: 1}
+  }
+  textarea {
+    @include transition(none);
+    resize: none;
+    overflow: hidden;
+    min-height: 45px;
+    line-height: 45px;
+  }
+  .button_holder {
+    text-align: center;
+    padding-top: rem(10);
+  }
+  button.button {
+    & + input {display: none}
+  }
+  .ajax-loader {
+    @extend %ani;
+    @include prefixer(animation, ajax-loader-spin 1s infinite linear);
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 -40px 0 14px;
+    border-radius: 100%;
+    border: 2px solid #f1f1f1;
+    border-top: 3px solid $cl;
+    opacity: 0;
+    visibility: hidden;
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .screen-reader-response {display: none}
+}
+
+@-webkit-keyframes ajax-loader-spin {
+  100% { -webkit-transform: rotate(360deg) }
+}
+@keyframes ajax-loader-spin {
+  100% { transform: rotate(360deg) }
+}
+
+// pager
+.wp-pagenavi {
+  margin-top: rem(80);
+  > * {
+    display: inline-block;
+    font: 400 18px/36px $ff;
+    color: #acacac;
+    background: transparent;
+    border: 3px solid #acacac;
+    width: 42px;
+    margin: 0 5px;
+    text-align: center;
+    //border-radius: 50%;
+  }
+  a {
+    @include hover {
+      color: #fff;
+      background: $cl;
+      border-color: $cl;
+    }
+  }
+  .current {
+    color: #fff;
+    background: $cl;
+    border-color: $cl;
+    cursor: default;
+  }
+  .first, .last {font-size: 14px}
+  //.extend {display: none}
+}
+
+
+// social media + share buttons
+.so_me, .shrs {
+  a {
+    display: inline-block;
+    vertical-align: top;
+    width: 34px;
+    height: 32px;
+    font-size: 20px;
+    line-height: 36px;
+    margin: 0 rem(6);
+    text-align: center;
+    position: relative;
+    z-index: 0;
+    &:after {
+      @extend %ani;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      z-index: -1;
+    }
+    @include hover {
+      &:after {height: 100%}
+    }
+  }
+}
+
+.so_me {
+  a {
+    color: #fff;
+    &:after {background: #fff}
+    &.i_ggl { @include hover {color: #db4437} }
+    &.i_fcbk { @include hover {color: #4267b2} }
+    &.i_twttr { @include hover {color: #1da1f2} }
+    &.i_lnkdn { @include hover {color: #0177b5} }
+    &.i_nstgrm { @include hover {color: #be3094} }
+    &.i_tb { @include hover {color: #cc181e} }
+    &.i_vm { @include hover {color: #01b3ef} }
+    &.i_skp { @include hover {color: #02aff3} }
+    &.i_pntrst { @include hover {color: #d50c22} }
+    &.i_drbbl { @include hover {color: #dd3e7b} }
+    &.i_email { @include hover {color: #39c4ad} }
+    &.i_fd { @include hover {color: #f8991b} }
+    &.i_lp { @include hover {color: #c62221} }
+  }
+}
+
+.shrs {
+  a {
+    color: $tx;
+    @include hover {color: #fff}
+    &.i_ggl:after {background: #db4437}
+    &.i_fcbk:after {background: #4267b2}
+    &.i_twttr:after {background: #1da1f2}
+    &.i_lnkdn:after {background: #0177b5}
+    &.i_pntrst:after {background: #d50c22}
+  }
+}

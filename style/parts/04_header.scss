@@ -1,0 +1,71 @@
+// header + main_menu
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background: #2d2d2d;
+  padding: 12px 3% 9px;
+  z-index: 27;
+  @include rwd-max(1024) {
+    > .container {position: static}
+  }
+  .language-chooser {
+    @include center(false, true);
+    left: 0;
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 3px;
+      &.lang-en a:after {content: 'EN'}
+      &.lang-ua a:after {content: 'UA'}
+      &.active a {box-shadow: 0 2px $cl}
+      a:after {color: #fff}
+      span {font-size: 0}
+    }
+  }
+}
+
+#logo {font-size: 32px}
+
+#menu {
+  @extend %ani;
+  li {
+    &.current-menu-item > a {}
+  }
+  @include rwd-max(1024) {
+    width: 50%;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0;
+    border-top: 1px solid $cl;
+    z-index: 2;
+    @include transform(translateX(101%));
+    &.is_open {@include transform(translateX(0))}
+    ul {
+      margin: 0;
+      background: #fff;
+    }
+    li {
+      display: block;
+      line-height: 1.5;
+      margin: 0;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      &.current-menu-item {
+        > a {
+          color: #fff;
+          background: $cl;
+        }
+      }
+    }
+    a {
+      display: block;
+      padding: 10px 0 8px;
+      @include hover {color: $tx}
+    }
+  }
+  @include rwd-max(767) {width: 100%}
+}
