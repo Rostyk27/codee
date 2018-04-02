@@ -24,7 +24,7 @@ body {
   @include flexbox;
   @include flex-direction(column);
   font-size: $fp;
-  color: $tx;
+  color: #fff;
   min-height: 100vh;
   background: #232323;
   @include rwd-max(1024) { &.is_overflow {overflow: hidden} }
