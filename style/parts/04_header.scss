@@ -18,7 +18,10 @@ header {
   background: #2d2d2d;
   z-index: 27;
   @include transform(translateX(101%));
-  &.is_open {@include transform(translateX(0))}
+  &.is_open {
+    @include transform(translateX(0));
+    #menu a:before {left: -54px}
+  }
 }
 
 #menu {
@@ -34,7 +37,7 @@ header {
     &.is_active > a {
       color: #2d2d2d;
       background: $cl;
-      &:before {box-shadow: inset 0 0 0 8px $cl}
+      &:before {box-shadow: inset 0 0 0 7px $cl}
     }
   }
   a {
@@ -45,16 +48,16 @@ header {
       @extend %ani;
       content: '';
       @include center(false, true);
-      left: -119px;
-      width: 16px;
-      height: 16px;
+      left: -117px;
+      width: 12px;
+      height: 12px;
       box-shadow: inset 0 0 0 2px #fff;
       @include rwd-max(767) {content: none}
     }
     @include hover {
       color: #2d2d2d;
       background: $cl;
-      &:before {box-shadow: inset 0 0 0 9px $cl}
+      &:before {box-shadow: inset 0 0 0 7px $cl}
     }
   }
 }
