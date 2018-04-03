@@ -2,6 +2,56 @@
 /*jshint multistr: true, latedef: nofunc */
 /*global jQuery, $, Swiper*/
 
+
+// menu scroll actions
+function scroll_menu() {
+    var lastId, id,
+        topMenu = $('#menu'),
+        menuItems = topMenu.find('a'),
+        scrollItems = menuItems.map(function(){
+            if(this.href.indexOf('#') !== -1) {
+                var item = $($(this).attr('href').replace('to-', ''));
+                if (item.length) { return item; }
+            }
+        });
+    $(window).scroll(function() {
+        var $window = $(window),
+            ww = $window.width(),
+            fromTop = $(this).scrollTop(),
+            cur = scrollItems.map(function(){
+                if ($(this).offset().top < fromTop) return this;
+            });
+        cur = cur[cur.length-1];
+        var id = cur && cur.length ? cur[0].id : '';
+
+        if (lastId !== id) {
+            lastId = id;
+            menuItems.parent().removeClass('is_active').end().filter('[href="#to-' + id + '"]').parent().addClass('is_active');
+            window.location.hash = '/'+id.replace('#', '');
+        }
+    });
+}
+
+
+// menu click actions
+function click_menu() {
+    var $window = $(window),
+        ww = $window.width();
+    $('.home a[href^="#"]').on('click', function () {
+        var id = $(this).attr('href').replace('to-', '');
+        if ($('#portfolio').length !== 0) {
+            $('html,body').stop().animate({scrollTop: $(id).offset().top + 2}, 1000, function () {
+                window.location.hash = '/' + id.replace('#', '');
+            });
+            $('.nav_icon').removeClass('is_active').next().removeClass('is_open');
+            $('body').removeClass('is_overflow');
+        }
+        return false;
+    });
+}
+
+
+
 $(document).ready(function() {
     'use strict';
 
@@ -61,6 +111,10 @@ $(document).ready(function() {
 
 
     //  custom code
+
+    // menu
+    click_menu();
+    scroll_menu();
     
 });
 
@@ -68,6 +122,13 @@ $(document).ready(function() {
 
 $(window).on('load', function() {
     'use strict';
+
+    var hash = window.location.hash,
+        $window = $(window),
+        ww = $window.width();
+    if(hash && hash !== '#/') {
+        $('html,body').animate({scrollTop: $(hash.replace('#/', '#')).offset().top + 3}, 700);
+    }
 
     //  swiper
     // setTimeout(function() {
@@ -107,5 +168,8 @@ $(window).on('load', function() {
 
 $(window).resizeEnd(function() {
     'use strict';
-    
+
+    // menu
+    click_menu();
+    scroll_menu();
 });

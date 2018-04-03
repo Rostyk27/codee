@@ -16,12 +16,12 @@
 <body <?php body_class(); ?>  data-hash="<?php wpa_fontbase64(true); ?>" data-a="<?php echo admin_url('admin-ajax.php'); ?>">
 <div id="main">
     <header>
-        <div class="container">
-            <a id="logo" class="codee codee_dev" href="<?php echo get_option('home') ?>">
-                <span>[</span>code<span>e</span><span>]</span>
-            </a>
+        <a id="logo" class="codee codee_dev" href="<?php echo get_option('home') ?>">
+            <span>[</span>code<span>e</span><span>]</span>
+        </a>
+        <a class="nav_icon" href=""><i></i><i></i><i></i></a>
+        <div class="menu_holder flex_center">
+            <nav id="menu"><?php wp_nav_menu(array('container' => false, 'items_wrap' => '<ul id="%1$s">%3$s</ul>', 'theme_location'  => 'main_menu')); ?></nav>
             <?php echo qtranxf_generateLanguageSelectCode('text'); ?>
-            <a class="nav_icon" href=""><i></i><i></i><i></i></a>
-            <!--<nav id="menu"><?php /*wp_nav_menu(array('container' => false, 'items_wrap' => '<ul id="%1$s">%3$s</ul>', 'theme_location'  => 'main_menu')); */?></nav>-->
         </div>
     </header>
