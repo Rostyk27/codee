@@ -20,12 +20,14 @@
                 <h2>Portfolio</h2>
 	            <div class="portfolio__items">
 		            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                        <figure class="snip1401">
-                            <img src="<?php the_post_thumbnail_url() ?>"/>
+                        <figure class="portfolio__item">
+                            <div class="portfolio__img" style="background-image: url(<?php the_post_thumbnail_url() ?>);"></div>
                             <figcaption>
                                 <h3><?php the_title(); ?></h3>
                                 <p><?php echo wp_trim_words( get_the_content(), 16, '' ) ?></p>
-                                <a class="button" href="#">Button</a>
+	                            <?php if ($link = get_field('live_link')) {
+	                                echo '<a class="button" href="'.$link.'">Button</a>';
+	                            } ?>
                             </figcaption><i class="ion-ios-home-outline"></i>
                         </figure>
 		            <?php endwhile; ?>
