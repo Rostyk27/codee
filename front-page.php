@@ -6,26 +6,34 @@
         </div>
     </section>
 
-    <section id="portfolio">
-        <div class="container">
-            <h2>Portfolio</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-        </div>
-    </section>
+    <?php
+    // the query
+    $the_query = new WP_Query( array(
+        'posts_per_page' => 5,
+        'post_type' => 'portfolio'
+    ));
+    ?>
+
+    <?php if ( $the_query->have_posts() ) : ?>
+        <section id="portfolio">
+            <div class="container">
+                <h2>Portfolio</h2>
+	            <div class="portfolio__items">
+		            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                        <figure class="snip1401">
+                            <img src="<?php the_post_thumbnail_url() ?>"/>
+                            <figcaption>
+                                <h3><?php the_title(); ?></h3>
+                                <p><?php echo wp_trim_words( get_the_content(), 16, '' ) ?></p>
+                                <a class="button" href="#">Button</a>
+                            </figcaption><i class="ion-ios-home-outline"></i>
+                        </figure>
+		            <?php endwhile; ?>
+		            <?php wp_reset_postdata(); ?>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
 
     <section id="who_we_are">
         <div class="container">
