@@ -6,7 +6,11 @@ header {
   padding: 14px 0 11px;
 }
 
-#logo {font-size: 32px}
+#logo {
+  font-size: 32px;
+  position: relative;
+  z-index: 28;
+}
 
 .menu_holder {
   @extend %ani;
@@ -43,7 +47,7 @@ header {
   a {
     display: inline-block;
     color: #fff;
-    padding: 13px 15px 12px;
+    padding: 14px 15px 11px;
     &:before {
       @extend %ani;
       content: '';
@@ -59,9 +63,9 @@ header {
       background: $cl;
       &:before {box-shadow: inset 0 0 0 7px $cl}
     }
+    @include rwd-min(1025) {padding: 13px 15px 12px}
   }
 }
-
 
 .language-chooser {
   @include center(true, false);
