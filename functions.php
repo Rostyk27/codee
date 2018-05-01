@@ -4,7 +4,7 @@
 require_once('inc/themer.php');
 
 // uncomment if need CPT
-//require_once('inc/cpt.php');
+require_once('inc/cpt.php');
 
 //register menus
 register_nav_menus(array(
@@ -12,7 +12,7 @@ register_nav_menus(array(
 ));
 
 //Custom images sizes
-//add_image_size( 'top_default', '1920', '500', true );
+add_image_size( 'portfolio', '855', '600', true );
 
 //register sidebar
 $reg_sidebars = array (
@@ -87,73 +87,3 @@ function get_loader(){
 	return '<div class="show_box"><div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"/></svg></div></div>';
 }
 
-// PORTFOLIO
-
-function add_portfolio_posts(){
-	register_post_type(
-		'portfolio',
-		array(
-			'labels'        => array(
-				'name'                  => 'Portfolio',
-				'singular_name'         => 'Portfolio item',
-				'add_new'               => 'Add new',
-				'add_new_item'          => 'Add new item',
-				'edit'                  => 'Edit',
-				'edit_item'             => 'Edit item',
-				'new_item'              => 'New item',
-				'view'                  => 'View',
-				'view_item'             => 'View item',
-				'search_items'          => 'Search item',
-				'not_found'             => 'Not found',
-				'not_found_in_trash'    => 'Not find in trash',
-			),
-			'public'        => true,
-			'hierarchical'  => true,
-			'has_archive'   => true,
-			'menu_icon'    => 'dashicons-portfolio',
-			'supports'      => array(
-				'title',
-				'editor',
-				'thumbnail',
-				//'post-formats',
-				'portfolio_artical_category'
-			),
-			'can_export' => true,
-		)
-	);
-}
-add_action('init','add_portfolio_posts');
-
-function my_taxonomies_portfolio_artical() {
-	$labels = array(
-		'name'              => _x( 'Category portfolio', 'taxonomy general name' ),
-		'singular_name'     => _x( 'Singular name', 'taxonomy singular name' ),
-		'search_items'      => __( 'Search items' ),
-		'all_items'         => __( 'All item' ),
-		'parent_item'       => __( 'Parent item' ),
-		'parent_item_colon' => __( 'Parent item colon' ),
-		'edit_item'         => __( 'Edit item' ),
-		'update_item'       => __( 'Update item' ),
-		'add_new_item'      => __( 'Add new item' ),
-		'new_item_name'     => __( 'New item name' ),
-		'menu_name'         => __( 'Portfolio Category' ),
-	);
-	$args = array(
-		'labels' => $labels,
-		'hierarchical' => true,
-		'show_ui'           => true,
-		'show_admin_column' => true
-	);
-	register_taxonomy( 'portfolio_artical_category', 'portfolio', $args );
-}
-add_action( 'init', 'my_taxonomies_portfolio_artical', 0 );
-
-/*function wpa_example_ajax(){
-	extract($_POST);
-
-	var_dump($action);
-
-	exit;
-}
-add_action('wp_ajax_wpa_example_ajax', 'wpa_example_ajax');
-add_action('wp_ajax_nopriv_wpa_example_ajax', 'wpa_example_ajax');*/

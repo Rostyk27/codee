@@ -30,12 +30,17 @@ $codee: 'Josefin Sans';
     @include transform(skewX(30deg));
     content: '';
     position: absolute;
+    top: -1px;
     left: -10%;
-    bottom: 0;
+    bottom: -1px;
     width: 0;
-    height: 100%;
     background: #f7f7f7;
     z-index: -1;
+  }
+  &.is_dark {
+    color: $tx;
+    border-color: $tx;
+    &:after {background: $tx}
   }
   @include hover {
     color: $cl;

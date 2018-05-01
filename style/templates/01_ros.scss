@@ -1,5 +1,77 @@
+// portfolio
+.portfolio_items {
+  @include rwd-min(569) {
+    @include flexbox;
+    @include flex-wrap(wrap);
+    margin-right: -5px;
+  }
+}
+.portfolio_item {
+  width: calc(33.3334% - 5px);
+  margin: 0 5px 5px 0;
+  &:first-child,
+  &:nth-child(2) {width: calc(50% - 5px)}
+}
+.pf_item_inner {
+  @extend .bg;
+  padding-bottom: 70.178%;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  &:after {
+    @extend %ani;
+    @include transform(skewX(30deg));
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -21%;
+    bottom: -1px;
+    width: 0;
+    background: $cl;
+    z-index: -1;
+  }
+  @include hover {
+    &:after {width: 142%}
+    .pf_item_info {
+      top: 0;
+      @include transition(all, 0.3s, ease, 0.28s);
+    }
+  }
+}
+.pf_item_info {
+  color: $tx;
+  position: absolute;
+  top: -101%;
+  left: 0;
+  right: 0;
+  height: 100%;
+  text-align: center;
+  @include transition(all, 0.3s, ease);
+}
+.pf_item_details {
+  @extend %ani;
+  display: none;
+  opacity: 0;
+  color: $cl;
+  width: 680px;
+  max-width: 80%;
+  background: $tx;
+  font-family: $ff;
+  @include transform(translateY(-70px));
+  .fancybox-slide--complete & {
+    opacity: 1;
+    @include transform(translateY(-40px));
+  }
+}
 
-.contact-us {
+
+
+// who we are
+
+
+
+// contact us
+#contact_us {
   background: linear-gradient(120deg, $cl 25%, $tx 85%);
   .container {width: 460px}
   h2 {color: #fff}
