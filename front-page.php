@@ -49,8 +49,8 @@
                                         <h4><?php the_title(); ?></h4>
 	                                    <?php echo $sub_title ? '<h5>'. $sub_title .'</h5>' : ''; ?>
                                         <div class="pf_item_buttons">
-		                                    <?php echo $live_link ? '<a class="button is_dark" href="'.$live_link.'">'. __( "[:en]View[:ua]Переглянути[:]" ) .'</a>' : ''; ?>
-                                            <a href="javascript:;" class="button is_dark" data-fancybox data-src="#portfolio_item<?php echo $j++; ?>"><?php _e( "[:en]Details[:ua]Деталі[:]" ); ?></a>
+		                                    <?php echo $live_link ? '<a class="rm_btn" href="'.$live_link.'">'. __( "[:en]View[:ua]Перегляд[:]" ) .'</a>' : ''; ?>
+                                            <a href="javascript:;" class="rm_btn" data-fancybox data-src="#portfolio_item<?php echo $j++; ?>"><?php _e( "[:en]Details[:ua]Деталі[:]" ); ?></a>
                                         </div>
                                     </div>
                                 </div>
