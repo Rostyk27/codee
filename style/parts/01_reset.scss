@@ -34,12 +34,13 @@ body {
   @include flex(1, 0, auto);
   overflow: hidden;
 }
+
 .container {
   width: 1140px;
-  max-width: 90%;
+  max-width: 88%;
   margin: 0 auto;
   position: relative;
-  @include rwd-min(481) {max-width: 94%}
+  @include rwd-min(768) {max-width: 94%}
 }
 
 article, aside, figure, footer, header, nav, section {display: block}

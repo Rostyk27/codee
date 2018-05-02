@@ -31,7 +31,7 @@ function add_portfolio_posts(){
 				'title',
 				'editor',
 				'thumbnail',
-				//'post-formats',
+				'excerpt',
 				'portfolio_artical_category'
 			),
 			'can_export' => true,

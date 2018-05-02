@@ -39,29 +39,38 @@
                     $i = 1; $j = 1;
 		            while ( $the_query->have_posts() ) : $the_query->the_post();
                     global $post;
-                    $sub_title = get_field('sub_title', $post->ID);
                     $live_link = get_field('live_link', $post->ID);
+			        $pf_cats = get_the_terms( $post->ID, 'portfolio_artical_category' );
                     ?>
                         <div class="portfolio_item">
-                            <div class="pf_item_inner" style="<?php echo image_src( get_post_thumbnail_id( $post->ID ), 'portfolio', true ); ?>">
-                                <div class="pf_item_info flex_center">
-                                    <div class="pf_item_info_inner">
-                                        <h4><?php the_title(); ?></h4>
-	                                    <?php echo $sub_title ? '<h5>'. $sub_title .'</h5>' : ''; ?>
-                                        <div class="pf_item_buttons">
-		                                    <?php echo $live_link ? '<a class="rm_btn" href="'.$live_link.'">'. __( "[:en]View[:ua]Перегляд[:]" ) .'</a>' : ''; ?>
-                                            <a href="javascript:;" class="rm_btn" data-fancybox data-src="#portfolio_item<?php echo $j++; ?>"><?php _e( "[:en]Details[:ua]Деталі[:]" ); ?></a>
-                                        </div>
+                            <div class="pf_item_info flex_center">
+                                <div class="pf_item_info_inner">
+                                    <h4><?php the_title(); ?></h4>
+			                        <?php if( has_excerpt( $post->ID ) ) : the_excerpt(); endif; ?>
+                                    <div class="pf_item_buttons">
+				                        <?php echo $live_link ? '<a class="rm_btn" href="'.$live_link.'">'. __( "[:en]View[:ua]Перегляд[:]" ) .'</a>' : ''; ?>
+                                        <a href="javascript:;" class="rm_btn" data-fancybox data-src="#portfolio_item<?php echo $j++; ?>"><?php _e( "[:en]Details[:ua]Деталі[:]" ); ?></a>
                                     </div>
                                 </div>
                             </div>
+                            <div class="pf_item_inner" style="<?php echo image_src( get_post_thumbnail_id( $post->ID ), 'portfolio', true ); ?>"></div>
                             <div id="portfolio_item<?php echo $i++; ?>" class="pf_item_details">
                                 <h3><?php the_title(); ?></h3>
-                                <p><?php the_content(); ?></p>
+                                <div class="pf_content"><?php the_content(); ?></div>
+                                <div class="pf_cats">
+                                    <span><?php _e( "[:en]Responsible for :[:ua]Відповідальні за :[:]" ); ?></span>
+	                                <?php if ( !empty( $pf_cats ) && ! is_wp_error( $pf_cats ) ) :
+		                                $qua = count($pf_cats); $k = 1;
+		                                foreach($pf_cats as $cat) :
+                                            $cat_name = '#'. str_replace(' ', '_', $cat->name); ?>
+                                            <small><?php echo $cat_name, $k++ != $qua ? ', ' : ''; ?></small>
+		                                <?php endforeach;
+	                                endif; ?>
+                                </div>
                             </div>
                         </div>
-		            <?php endwhile; ?>
-		            <?php wp_reset_postdata(); ?>
+		            <?php endwhile;
+		            wp_reset_postdata(); ?>
                 </div>
             </div>
         </section>
