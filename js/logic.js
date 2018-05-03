@@ -52,6 +52,11 @@ function click_menu() {
 
 
 
+var scene = $('#skills_list').get(0);
+var parallax = new Parallax(scene);
+
+
+
 $(document).ready(function() {
     'use strict';
 
@@ -117,8 +122,10 @@ $(document).ready(function() {
     scroll_menu();
 
 
-    var scene = $('#skills_list').get(0);
-    var parallax = new Parallax(scene);
+
+    var $window = $(window),
+        ww = $window.width();
+    (ww<1024) ? parallax.disable() : parallax.enable();
 });
 
 
@@ -175,4 +182,8 @@ $(window).resizeEnd(function() {
     // menu
     click_menu();
     scroll_menu();
+
+    var $window = $(window),
+        ww = $window.width();
+    (ww<1024) ? parallax.disable() : parallax.enable();
 });

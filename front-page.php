@@ -80,7 +80,7 @@
 	                shuffle($numbers);
 	                $i = 0;
 	                foreach ( $skills_list as $skill ) :
-		                echo '<div class="layer skill_'. $numbers[$i] .'" data-depth="0.15">'. $skill['title'] .'</div>';
+		                echo '<div class="layer skill_'. $numbers[$i] .' '. $skill['sm'][0] .'" data-depth="0.15">'. $skill['title'] .'</div>';
                         $i++;
                     endforeach;
                     ?>

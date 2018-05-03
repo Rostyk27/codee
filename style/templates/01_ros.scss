@@ -132,7 +132,7 @@
   background: linear-gradient(120deg, $cl 30%, $tx 120%);
   position: relative;
   .container {
-    width: 600px;
+    width: 570px;
     position: static;
   }
   h2 {color: $tx}
@@ -143,25 +143,64 @@
   }
 }
 
-#skills_list {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.we_are_content {
+  position: relative;
   z-index: 1;
+}
+
+#skills_list {
   transform: none !important;
+  pointer-events: all !important;
+  @include rwd-max(1024) {
+    @include flexbox;
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+  }
+  @include rwd-min(1025) {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
 }
 [class*="skill_"] {
+  font-size: 13px;
+  font-weight: 300;
+  color: #fff;
+  background: $tx;
+  padding: 5px 10px;
+  text-align: center;
+  @include rwd-max(1024) {
+    margin: 2px;
+    max-width: 50%;
+    @include flex(1);
+    position: static !important;
+    &.skill_1 {@include order(1)}
+    &.skill_2 {@include order(2)}
+    &.skill_3 {@include order(3)}
+    &.skill_4 {@include order(4)}
+    &.skill_5 {@include order(5)}
+    &.skill_6 {@include order(6)}
+    &.skill_7 {@include order(7)}
+    &.skill_8 {@include order(8)}
+    &.skill_9 {@include order(9)}
+    &.skill_10 {@include order(10)}
+    &.skill_11 {@include order(11)}
+    &.skill_12 {@include order(12)}
+    &.skill_13 {@include order(13)}
+    &.skill_14 {@include order(14)}
+    &.skill_15 {@include order(15)}
+  }
   @include rwd-min(1025) {
     display: inline-block !important;
     position: absolute !important;
-    font-size: 13px;
-    font-weight: 300;
-    color: #fff;
-    background: $tx;
-    padding: 5px 10px;
     box-shadow: 0 0 5px 0 $tx;
+    &.is_smaller {
+      font-size: 12px;
+      padding: 5px 8px;
+    }
     &.skill_1 {
       top: 5% !important;
       left: 4% !important;
@@ -211,12 +250,12 @@
     }
     &.skill_12 {
       top: 33% !important;
-      right: 19% !important;
+      right: 17% !important;
       left: auto !important;
     }
     &.skill_13 {
       top: 45% !important;
-      right: 24% !important;
+      right: 20% !important;
       left: auto !important;
     }
     &.skill_14 {
