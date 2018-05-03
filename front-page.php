@@ -18,22 +18,6 @@
         <section id="portfolio">
             <div class="container">
                 <h2><?php _e("[:en]Portfolio[:ua]Портфоліо[:]"); ?></h2>
-	            <!--<div class="portfolio__items">
-		            <?php /*while ( $the_query->have_posts() ) : $the_query->the_post(); */?>
-                        <figure class="portfolio__item">
-                            <div class="portfolio__img" style="background-image: url(<?php /*the_post_thumbnail_url() */?>);"></div>
-                            <figcaption>
-                                <h3><?php /*the_title(); */?></h3>
-                                <p><?php /*echo wp_trim_words( get_the_content(), 16, '' ) */?></p>
-	                            <?php /*if ($link = get_field('live_link')) {
-	                                echo '<a class="button" href="'.$link.'">Button</a>';
-	                            } */?>
-                            </figcaption><i class="ion-ios-home-outline"></i>
-                        </figure>
-		            <?php /*endwhile; */?>
-		            <?php /*wp_reset_postdata(); */?>
-                </div>-->
-
                 <div class="portfolio_items">
 		            <?php
                     $i = 1; $j = 1;
@@ -48,7 +32,7 @@
                                     <h4><?php the_title(); ?></h4>
 			                        <?php if( has_excerpt( $post->ID ) ) : the_excerpt(); endif; ?>
                                     <div class="pf_item_buttons">
-				                        <?php echo $live_link ? '<a class="rm_btn" href="'.$live_link.'">'. __( "[:en]View[:ua]Перегляд[:]" ) .'</a>' : ''; ?>
+				                        <?php echo $live_link ? '<a class="rm_btn" href="'.$live_link.'" target="_blank" rel="noopener">'. __( "[:en]View[:ua]Перегляд[:]" ) .'</a>' : ''; ?>
                                         <a href="javascript:;" class="rm_btn" data-fancybox data-src="#portfolio_item<?php echo $j++; ?>"><?php _e( "[:en]Details[:ua]Деталі[:]" ); ?></a>
                                     </div>
                                 </div>
@@ -78,22 +62,30 @@
 
     <section id="who_we_are">
         <div class="container">
-            <h2>Who We Are</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
+            <div class="we_are_content">
+                <h2><?php _e("[:en]Who We Are[:ua]Про Нас[:]"); ?></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
+                <br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
+                <br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
+                <br>
+                <br>
+                <div style="text-align: center;"><a href="javascript:;" class="button"><?php _e("[:en]Find out[:ua]Дізнатись[:]"); ?></a></div>
+            </div>
+	        <?php if ( $skills_list = get_field( 'skills_list' ) ) : ?>
+                <div id="skills_list">
+	                <?php
+	                $numbers = range(1, 15);
+	                shuffle($numbers);
+	                $i = 0;
+	                foreach ( $skills_list as $skill ) :
+		                echo '<div class="layer skill_'. $numbers[$i] .'" data-depth="0.15">'. $skill['title'] .'</div>';
+                        $i++;
+                    endforeach;
+                    ?>
+                </div>
+	        <?php endif; ?>
         </div>
     </section>
 

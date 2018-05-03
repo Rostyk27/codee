@@ -115,7 +115,10 @@ $(document).ready(function() {
     // menu
     click_menu();
     scroll_menu();
-    
+
+
+    var scene = $('#skills_list').get(0);
+    var parallax = new Parallax(scene);
 });
 
 

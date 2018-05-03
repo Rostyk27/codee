@@ -127,11 +127,115 @@
 
 
 // who we are
+#who_we_are {
+  background: -webkit-linear-gradient(330deg, $cl 30%, $tx 120%);
+  background: linear-gradient(120deg, $cl 30%, $tx 120%);
+  position: relative;
+  .container {
+    width: 600px;
+    position: static;
+  }
+  h2 {color: $tx}
+  p {
+    color: #fff;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+}
 
+#skills_list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  transform: none !important;
+}
+[class*="skill_"] {
+  @include rwd-min(1025) {
+    display: inline-block !important;
+    position: absolute !important;
+    font-size: 13px;
+    font-weight: 300;
+    color: #fff;
+    background: $tx;
+    padding: 5px 10px;
+    box-shadow: 0 0 5px 0 $tx;
+    &.skill_1 {
+      top: 5% !important;
+      left: 4% !important;
+    }
+    &.skill_2 {
+      top: 12% !important;
+      left: 17% !important;
+    }
+    &.skill_3 {
+      top: 24% !important;
+      left: 11% !important;
+    }
+    &.skill_4 {
+      top: 37% !important;
+      left: 5% !important;
+    }
+    &.skill_5 {
+      top: 49% !important;
+      left: 19% !important;
+    }
+    &.skill_6 {
+      top: 62% !important;
+      left: 13% !important;
+    }
+    &.skill_7 {
+      top: 75% !important;
+      left: 4% !important;
+    }
+    &.skill_8 {
+      top: 85% !important;
+      left: 10% !important;
+    }
+    &.skill_9 {
+      top: 7% !important;
+      right: 16% !important;
+      left: auto !important;
+    }
+    &.skill_10 {
+      top: 14% !important;
+      right: 8% !important;
+      left: auto !important;
+    }
+    &.skill_11 {
+      top: 26% !important;
+      right: 11% !important;
+      left: auto !important;
+    }
+    &.skill_12 {
+      top: 33% !important;
+      right: 19% !important;
+      left: auto !important;
+    }
+    &.skill_13 {
+      top: 45% !important;
+      right: 24% !important;
+      left: auto !important;
+    }
+    &.skill_14 {
+      top: 57% !important;
+      right: 9% !important;
+      left: auto !important;
+    }
+    &.skill_15 {
+      top: 70% !important;
+      right: 13% !important;
+      left: auto !important;
+    }
+  }
+}
 
 
 // contact us
 #contact_us {
+  background: -webkit-linear-gradient(330deg, $cl 25%, $tx 85%);
   background: linear-gradient(120deg, $cl 25%, $tx 85%);
   .container {width: 460px}
   h2 {color: #fff}
