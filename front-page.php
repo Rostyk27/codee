@@ -76,12 +76,21 @@
 	        <?php if ( $skills_list = get_field( 'skills_list' ) ) : ?>
                 <div id="skills_list">
 	                <?php
-	                $numbers = range(1, 15);
+	                $numbers = range(1, 22);
 	                shuffle($numbers);
 	                $i = 0;
 	                foreach ( $skills_list as $skill ) :
-		                echo '<div class="layer skill_'. $numbers[$i] .' '. $skill['sm'][0] .'" data-depth="0.15">'. $skill['title'] .'</div>';
-                        $i++;
+		                if ((0 <= $i) && ($i <= 6)) :
+                            $dpt = 10;
+	                    elseif ((7 <= $i) && ($i <= 13)) :
+	                        $dpt = 20;
+	                    else :
+                            $dpt = 15;
+	                    endif;
+
+		                echo '<div class="layer skill_'. $numbers[$i] .' '. $skill['sm'][0] .'" data-depth="0.'. $dpt .'">'. $skill['title'] .'</div>';
+
+		                $i++;
                     endforeach;
                     ?>
                 </div>

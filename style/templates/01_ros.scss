@@ -135,17 +135,17 @@
     width: 570px;
     position: static;
   }
-  h2 {color: $tx}
-  p {
-    color: #fff;
-    font-weight: 300;
-    line-height: 1.5;
-  }
 }
 
 .we_are_content {
+  color: $tx;
   position: relative;
   z-index: 1;
+  h2 {color: $tx}
+  p {
+    font-weight: 400;
+    line-height: 1.5;
+  }
 }
 
 #skills_list {
@@ -192,6 +192,13 @@
     &.skill_13 {@include order(13)}
     &.skill_14 {@include order(14)}
     &.skill_15 {@include order(15)}
+    &.skill_16 {@include order(16)}
+    &.skill_17 {@include order(17)}
+    &.skill_18 {@include order(18)}
+    &.skill_19 {@include order(19)}
+    &.skill_20 {@include order(20)}
+    &.skill_21 {@include order(21)}
+    &.skill_22 {@include order(22)}
   }
   @include rwd-min(1025) {
     display: inline-block !important;
@@ -210,19 +217,19 @@
       left: 17% !important;
     }
     &.skill_3 {
-      top: 24% !important;
-      left: 11% !important;
+      top: 21% !important;
+      left: 9% !important;
     }
     &.skill_4 {
       top: 37% !important;
-      left: 5% !important;
+      left: 6% !important;
     }
     &.skill_5 {
-      top: 49% !important;
+      top: 44% !important;
       left: 19% !important;
     }
     &.skill_6 {
-      top: 62% !important;
+      top: 59% !important;
       left: 13% !important;
     }
     &.skill_7 {
@@ -249,12 +256,12 @@
       left: auto !important;
     }
     &.skill_12 {
-      top: 33% !important;
+      top: 36% !important;
       right: 17% !important;
       left: auto !important;
     }
     &.skill_13 {
-      top: 45% !important;
+      top: 48% !important;
       right: 20% !important;
       left: auto !important;
     }
@@ -264,12 +271,45 @@
       left: auto !important;
     }
     &.skill_15 {
-      top: 70% !important;
-      right: 13% !important;
+      top: 68% !important;
+      right: 14% !important;
+      left: auto !important;
+    }
+    &.skill_16 {
+      top: 71% !important;
+      left: 18% !important;
+    }
+    &.skill_17 {
+      top: 52% !important;
+      left: 3% !important;
+    }
+    &.skill_18 {
+      top: 30% !important;
+      left: 17% !important;
+    }
+    &.skill_19 {
+      top: 18% !important;
+      right: 19% !important;
+      left: auto !important;
+    }
+    &.skill_20 {
+      top: 42% !important;
+      right: 6% !important;
+      left: auto !important;
+    }
+    &.skill_21 {
+      top: 80% !important;
+      right: 19% !important;
+      left: auto !important;
+    }
+    &.skill_22 {
+      top: 88% !important;
+      right: 8% !important;
       left: auto !important;
     }
   }
 }
+
 
 
 // contact us

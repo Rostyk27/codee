@@ -125,7 +125,7 @@ $(document).ready(function() {
 
     var $window = $(window),
         ww = $window.width();
-    (ww<1024) ? parallax.disable() : parallax.enable();
+    (ww<1025) ? parallax.disable() : parallax.enable();
 });
 
 
@@ -185,5 +185,5 @@ $(window).resizeEnd(function() {
 
     var $window = $(window),
         ww = $window.width();
-    (ww<1024) ? parallax.disable() : parallax.enable();
+    (ww<1025) ? parallax.disable() : parallax.enable();
 });
