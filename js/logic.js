@@ -122,10 +122,18 @@ $(document).ready(function() {
     scroll_menu();
 
 
-
+    // skills parallax
     var $window = $(window),
         ww = $window.width();
     (ww<1025) ? parallax.disable() : parallax.enable();
+
+
+    // scroll to next section
+    $('.go_next').on('click', function () {
+        $('html, body').animate({
+            scrollTop: $(this).parents('section').next().offset().top + 1
+        }, 1000);
+    });
 });
 
 
@@ -183,6 +191,8 @@ $(window).resizeEnd(function() {
     click_menu();
     scroll_menu();
 
+
+    // skills parallax
     var $window = $(window),
         ww = $window.width();
     (ww<1025) ? parallax.disable() : parallax.enable();

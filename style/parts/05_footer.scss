@@ -3,4 +3,6 @@
 footer {
   padding: 15px 0;
   text-align: center;
+  -moz-user-select: none;
+  user-select: none;
 }

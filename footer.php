@@ -2,7 +2,7 @@
 <footer>
     <div class="container">
         <div class="codee">
-            <span>[</span>codee<span>]</span> <?php echo date('Y') ?>
+            <span>[</span>code<span>e]</span> <?php echo date('Y') ?>
         </div>
     </div>
 </footer>

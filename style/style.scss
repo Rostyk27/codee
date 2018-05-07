@@ -71,7 +71,10 @@ $codee: 'Josefin Sans';
   }
 }
 
-p {padding-bottom: rem(15)}
+p {
+  padding-bottom: rem(15);
+  .chrome & {font-weight: 300}
+}
 
 h1 {
   font-size: rem(64);
@@ -88,6 +91,7 @@ h1 {
 h2 {
   font-size: rem(44);
   font-weight: 700;
+  line-height: 1.1;
   color: $cl;
   text-align: center;
   padding-bottom: rem(60);
@@ -98,13 +102,14 @@ h3 {
   text-align: center;
   padding-bottom: rem(30);
 }
-h4 {
-  font-size: rem(27);
+h4, h5 {
   font-weight: 300;
   padding-bottom: rem(12);
 }
+h4 {font-size: rem(27)}
+h5 {font-size: rem(24)}
 
-.content {}
+.button_holder {text-align: center}
 
 section {padding: rem(100) 0 rem(120)}
 

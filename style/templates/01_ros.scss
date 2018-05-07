@@ -135,6 +135,7 @@
     width: 570px;
     position: static;
   }
+  h3.rwd_show {padding-top: rem(75)}
 }
 
 .we_are_content {
@@ -166,12 +167,13 @@
   }
 }
 [class*="skill_"] {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
+  line-height: 1.1;
   color: #fff;
   background: $tx;
-  padding: 5px 10px;
   text-align: center;
+  padding: 6px 10px 5px 10px;
   @include rwd-max(1024) {
     margin: 2px;
     max-width: 50%;
@@ -204,8 +206,9 @@
     display: inline-block !important;
     position: absolute !important;
     box-shadow: 0 0 5px 0 $tx;
+    padding: 5px 10px;
     &.is_smaller {
-      font-size: 12px;
+      font-size: 11px;
       padding: 5px 8px;
     }
     &.skill_1 {
@@ -310,6 +313,33 @@
   }
 }
 
+
+
+// what we do
+.we_do_columns {padding-top: rem(30)}
+.we_do_col {
+  margin-bottom: rem(90);
+  @include rwd-max(1024) {
+    max-width: 570px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include rwd-min(1025) {
+    width: 30%;
+    &:nth-child(2) {@include order(-1)}
+  }
+  img {
+    width: 56px;
+    margin-bottom: rem(24);
+  }
+}
+.we_do_desc {
+  margin-top: rem(39);
+  border-left: 2px solid $cl;
+  padding: rem(6) rem(21) 0 rem(21);
+  > *:last-child {padding-bottom: rem(6)}
+  p {font-size: 94%}
+}
 
 
 // contact us
