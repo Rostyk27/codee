@@ -17,7 +17,7 @@
 <div id="main">
     <header>
         <a id="logo" class="codee codee_dev" href="<?php echo get_option('home') ?>">
-            <span>[</span>code<span>e</span><span>]</span>
+            <span>[</span>code<span>e<span class="element" data-words="<?php echo get_field('appears_text') ?>"></span></span><span>]</span>
         </a>
         <a class="nav_icon" href=""><i></i><i></i><i></i></a>
         <div class="menu_holder flex_center">

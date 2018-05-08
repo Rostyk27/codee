@@ -78,6 +78,8 @@ p {
 
 h1 {
   font-size: rem(64);
+  font-weight: 500;
+  line-height: 1.05;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -97,17 +99,16 @@ h2 {
   padding-bottom: rem(60);
 }
 h3 {
-  font-size: rem(36);
-  font-weight: 500;
+  font-size: rem(27);
+  font-weight: 300;
   text-align: center;
   padding-bottom: rem(30);
 }
-h4, h5 {
+h4 {
+  font-size: rem(24);
   font-weight: 300;
   padding-bottom: rem(12);
 }
-h4 {font-size: rem(27)}
-h5 {font-size: rem(24)}
 
 .button_holder {text-align: center}
 

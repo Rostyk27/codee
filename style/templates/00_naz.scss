@@ -3,8 +3,9 @@
   @extend .bg;
   @extend .flex_center;
   position: relative;
+  padding-bottom: rem(90);
   height: calc(100vh - 115px);
-  @include rwd-min(1025) {height: calc(100vh - 60px)} 
+  @include rwd-min(1025) {height: calc(100vh - 60px)}
   &:after {
     content: '';
     position: absolute;
@@ -16,6 +17,8 @@
     z-index: 0;
   }
 }
+
+
 .portfolio__items {
   @include flexbox;
   @include flex-wrap(wrap);

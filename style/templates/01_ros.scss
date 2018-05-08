@@ -69,6 +69,7 @@
     height: 100%;
     z-index: 1;
   }
+  h3 {padding-bottom: rem(12)}
   p {
     font-size: 93.8%;
     color: $cl;
@@ -128,8 +129,8 @@
 
 // who we are
 #who_we_are {
-  background: -webkit-linear-gradient(330deg, $cl 30%, $tx 120%);
-  background: linear-gradient(120deg, $cl 30%, $tx 120%);
+  background: -webkit-linear-gradient(330deg, $cl 10%, $tx 115%);
+  background: linear-gradient(120deg, $cl 10%, $tx 115%);
   position: relative;
   .container {
     width: 570px;
@@ -139,14 +140,10 @@
 }
 
 .we_are_content {
-  color: $tx;
   position: relative;
   z-index: 1;
-  h2 {color: $tx}
-  p {
-    font-weight: 400;
-    line-height: 1.5;
-  }
+  h2 {color: #fff}
+  p {font-weight: 400}
 }
 
 #skills_list {
@@ -159,10 +156,10 @@
   }
   @include rwd-min(1025) {
     position: absolute !important;
-    top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    top: rem(45);
+    bottom: rem(60);
     z-index: 0;
   }
 }
@@ -171,7 +168,7 @@
   font-weight: 300;
   line-height: 1.1;
   color: #fff;
-  background: $tx;
+  background: #333;
   text-align: center;
   padding: 6px 10px 5px 10px;
   @include rwd-max(1024) {
