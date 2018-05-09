@@ -83,11 +83,14 @@ h1 {
   text-align: center;
   position: relative;
   z-index: 1;
-  &.codee {
-    font-size: 36px;
-    @include rwd-range(1024, 768) {font-size: 48px}
-    @include rwd-min(1025) {font-size: 64px}
-    b {font-weight: 400}
+  span {color: $cl}
+  .typed-cursor {
+    @include animation(blink 1s infinite);
+    opacity: 1;
+  }
+  @include keyframes(blink) {
+    50% {opacity: 0}
+    0%, 100% {opacity: 1}
   }
 }
 h2 {

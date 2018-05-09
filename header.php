@@ -16,8 +16,8 @@
 <body <?php body_class(); ?>  data-hash="<?php wpa_fontbase64(true); ?>" data-a="<?php echo admin_url('admin-ajax.php'); ?>">
 <div id="main">
     <header>
-        <a id="logo" class="codee codee_dev" href="<?php echo get_option('home') ?>">
-            <span>[</span>code<span>e<span class="element" data-words="<?php echo get_field('appears_text') ?>"></span></span><span>]</span>
+        <a id="logo" class="codee codee_dev" href="mailto:dev@codee.pro">
+            <span>[</span>code<span>e</span><span>]</span>
         </a>
         <a class="nav_icon" href=""><i></i><i></i><i></i></a>
         <div class="menu_holder flex_center">

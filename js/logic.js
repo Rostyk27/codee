@@ -62,12 +62,11 @@ $(document).ready(function() {
 
     var typed = new Typed(".element", {
         strings: $(".element").data('words').split(' '),
-        startDelay: 3000,
+        startDelay: 2000,
         typeSpeed: 150,
         loop: true,
         backSpeed: 80,
-        backDelay: 2000,
-        showCursor: false
+        backDelay: 2500
     });
 
     //  hamburger + menu

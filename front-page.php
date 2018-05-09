@@ -2,7 +2,7 @@
 
     <div class="top_panel" style="background-image: url(<?php the_field('background-top') ?>);">
         <div class="container">
-            <h1>Websites for everyone</h1>
+            <h1>We make <span class="element" data-words="<?php echo get_field('appears_text') ?>"></span> websites</h1>
         </div>
     </div>
 
