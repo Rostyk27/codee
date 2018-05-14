@@ -135,18 +135,18 @@
     <section id="contact_us">
         <div class="container">
             <h2><?php _e("[:en]Contact Us[:ua]Контакти[:]"); ?></h2>
-            <ul>
-                <li>Skype</li>
-                <li>Upwork agency</li>
-                <li>Something else?</li>
-            </ul>
+            <div class="contact_row">
+	            <?php
+                $tel = get_field('tel', 'option');
+                $mail = get_field('mail', 'option');
+                ?>
+                <a href="mailto:<?php echo $mail; ?>"><span>&#9993;</span> <?php echo $mail; ?></a>
+                <a href="tel:+38<?php echo preg_replace('/[^0-9]/', '', $tel); ?>" class="tel_to"><span>&#128379;</span> <?php echo $tel; ?></a>
+            </div>
+            <h3><?php _e("[:en]Write us a Letter[:ua]Напишіть нам Листа[:]"); ?></h3>
+			<?php echo do_shortcode('[contact-form-7 id="4" title="Contact Form"]'); ?>
             <p></p>
             <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <h3><?php _e("[:en]Get in Touch[:ua]Зв'яжіться з Нами[:]"); ?></h3>
-			<?php echo do_shortcode('[contact-form-7 id="4" title="Contact Form"]') ?>
             <p></p>
             <p></p>
             <p></p>
