@@ -77,13 +77,23 @@ p {
 }
 
 h1 {
-  font-size: rem(64);
+  font-size: 40px;
   font-weight: 500;
-  line-height: 1.05;
+  line-height: 1.2;
   text-align: center;
   position: relative;
   z-index: 1;
   span {color: $cl}
+  b {
+    font-weight: 500;
+    @include rwd-max(1279) {
+      display: block;
+      line-height: 1.4;
+    }
+  }
+  @include rwd-range(1024, 768) {font-size: 48px}
+  @include rwd-min(1025) {font-size: 64px}
+  @include rwd-min(1280) { br {display: none} }
   .typed-cursor {
     @include animation(blink 1s infinite);
     opacity: 1;

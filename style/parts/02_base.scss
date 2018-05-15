@@ -38,6 +38,7 @@
 // cf7
 div.wpcf7 {
   position: relative;
+  padding-bottom: rem(120);
   .wpcf7-form-control-wrap {
     display: block;
     overflow: hidden;
@@ -92,7 +93,7 @@ div.wpcf7 {
   input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]), textarea {
     display: block;
     height: 45px;
-    font: 400 16px $ff;
+    font: 300 16px $ff;
     color: #fff;
     padding: 0;
     border: none;

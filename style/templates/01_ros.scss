@@ -138,12 +138,13 @@
   }
   h3.rwd_show {padding-top: rem(75)}
 }
-
 .we_are_content {
+  font-weight: 300;
   position: relative;
   z-index: 1;
   h2 {color: #fff}
-  p {font-weight: 400}
+  ul {list-style: inside disc}
+  li {padding-bottom: rem(15)}
 }
 
 #skills_list {
@@ -341,15 +342,18 @@
 
 // contact us
 #contact_us {
-  background: -webkit-linear-gradient(330deg, $cl 25%, $tx 85%);
-  background: linear-gradient(120deg, $cl 25%, $tx 85%);
+  padding-bottom: rem(30);
+  //background: -webkit-linear-gradient(330deg, $cl 25%, $tx 85%);
+  //background: linear-gradient(120deg, $cl 25%, $tx 85%);
+  background: -webkit-linear-gradient(330deg, $cl 10%, $tx 115%);
+  background: linear-gradient(120deg, $cl 10%, $tx 115%);
   .container {width: 460px}
   h2 {color: #fff}
   ul {padding-bottom: rem(30)}
   li {padding-bottom: rem(15)}
 }
 .contact_row {
-  margin-bottom: rem(60);
+  margin-bottom: rem(90);
   @include rwd-min(415) {
     @include flexbox;
     @include align-items(center);
@@ -366,17 +370,11 @@
     @include justify-content(flex-start);
     @include hover {box-shadow: 0 2px #fff}
     @include rwd-max(414) {margin: 0 20px 25px}
-    span {
-      line-height: 0;
-      margin-right: 7px;
-      -moz-user-select: none;
-      user-select: none;
-    }
-    &.tel_to span {
-      @include transform(rotate(-45deg));
-      font-size: 133.3%;
-      margin-right: 12px;
-    }
+    img {margin-right: 9px}
   }
 }
-
+#map {
+  color: $tx;
+  @include rwd-range(1024, 768) {height: 450px !important}
+  @include rwd-min(1025) {height: 550px !important}
+}

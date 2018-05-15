@@ -57,10 +57,9 @@ if(defined('GOOGLEMAPS')) {
         extract(shortcode_atts(array(
             'id'                => 'map_canvas',
             'coordinates'       => '1, 1',
-            'zoom'              => 15,
+            'zoom'              => 4,
             'height'            => '350px',
-            'zoomcontrol'       => 'false',
-            'scrollwheel'       => 'false',
+            'zoomcontrol'       => 'true',
             'scalecontrol'      => 'false',
             'disabledefaultui'  => 'false',
             'infobox'           => '',
@@ -80,7 +79,6 @@ if(defined('GOOGLEMAPS')) {
             zoom: '.$zoom.',
             center: myLatlng,
             zoomControl: '.$zoomcontrol.',
-            scrollwheel: '.$scrollwheel.',
             scaleControl: '.$scalecontrol.',
             disableDefaultUI: '.$disabledefaultui.'
             '.( $content ? ',styles:'.$content : '' ).'

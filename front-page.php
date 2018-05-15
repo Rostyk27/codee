@@ -2,7 +2,7 @@
 
     <div class="top_panel" style="background-image: url(<?php the_field('background-top') ?>);">
         <div class="container">
-            <h1>We make <span class="element" data-words="<?php echo get_field('appears_text') ?>"></span> websites</h1>
+            <h1><?php _e("[:en]We<br> make[:ua]Ми<br> створюємо[:]"); ?> <b><span class="element" data-words="<?php echo get_field('appears_text') ?>"></span></b> <?php _e("[:en]websites[:ua]сайти[:]"); ?></h1>
         </div>
     </div>
 
@@ -64,13 +64,7 @@
         <div class="container">
             <div class="we_are_content">
                 <h2><?php _e("[:en]Who We Are[:ua]Про Нас[:]"); ?></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum doloremque neque officia quidem tenetur, veniam? Expedita officiis rem similique?</p>
-                <br>
-                <br>
+                <?php if (have_posts()) : while (have_posts()) : the_post(); the_content(); endwhile; endif; ?>
                 <div class="button_holder"><a href="javascript:;" class="button go_next"><?php _e("[:en]Find out[:ua]Дізнатись[:]"); ?></a></div>
             </div>
 	        <?php if ( $skills_list = get_field( 'skills_list' ) ) : ?>
@@ -140,21 +134,22 @@
                 $tel = get_field('tel', 'option');
                 $mail = get_field('mail', 'option');
                 ?>
-                <a href="mailto:<?php echo $mail; ?>"><span>&#9993;</span> <?php echo $mail; ?></a>
-                <a href="tel:+38<?php echo preg_replace('/[^0-9]/', '', $tel); ?>" class="tel_to"><span>&#128379;</span> <?php echo $tel; ?></a>
+                <a href="mailto:<?php echo $mail; ?>">
+                    <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDQ4NS4yMTEgNDg1LjIxMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDg1LjIxMSA0ODUuMjExOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTQ4NS4yMTEsMzYzLjkwNmMwLDEwLjYzNy0yLjk5MiwyMC40OTgtNy43ODUsMjkuMTc0TDMyNC4yMjUsMjIxLjY3bDE1MS41NC0xMzIuNTg0ICAgYzUuODk1LDkuMzU1LDkuNDQ2LDIwLjM0NCw5LjQ0NiwzMi4yMTlWMzYzLjkwNnogTTI0Mi42MDYsMjUyLjc5M2wyMTAuODYzLTE4NC41Yy04LjY1My00LjczNy0xOC4zOTctNy42NDItMjguOTA4LTcuNjQySDYwLjY1MSAgIGMtMTAuNTI0LDAtMjAuMjcxLDIuOTA1LTI4Ljg4OSw3LjY0MkwyNDIuNjA2LDI1Mi43OTN6IE0zMDEuMzkzLDI0MS42MzFsLTQ4LjgwOSw0Mi43MzRjLTIuODU1LDIuNDg3LTYuNDEsMy43MjktOS45NzgsMy43MjkgICBjLTMuNTcsMC03LjEyNS0xLjI0Mi05Ljk4LTMuNzI5bC00OC44Mi00Mi43MzZMMjguNjY3LDQxNS4yM2M5LjI5OSw1LjgzNCwyMC4xOTcsOS4zMjksMzEuOTgzLDkuMzI5aDM2My45MTEgICBjMTEuNzg0LDAsMjIuNjg3LTMuNDk1LDMxLjk4My05LjMyOUwzMDEuMzkzLDI0MS42MzF6IE05LjQ0OCw4OS4wODVDMy41NTQsOTguNDQsMCwxMDkuNDI5LDAsMTIxLjMwNXYyNDIuNjAyICAgYzAsMTAuNjM3LDIuOTc4LDIwLjQ5OCw3Ljc4OSwyOS4xNzRsMTUzLjE4My0xNzEuNDRMOS40NDgsODkuMDg1eiIgZmlsbD0iI0ZGRkZGRiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" alt="email"/>
+                    <?php echo $mail; ?>
+                </a>
+                <a href="tel:+38<?php echo preg_replace('/[^0-9]/', '', $tel); ?>" class="tel_to">
+                    <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDM0OC4wNzcgMzQ4LjA3NyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzQ4LjA3NyAzNDguMDc3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPGc+CgkJCTxwYXRoIGQ9Ik0zNDAuMjczLDI3NS4wODNsLTUzLjc1NS01My43NjFjLTEwLjcwNy0xMC42NjQtMjguNDM4LTEwLjM0LTM5LjUxOCwwLjc0NGwtMjcuMDgyLDI3LjA3NiAgICAgYy0xLjcxMS0wLjk0My0zLjQ4Mi0xLjkyOC01LjM0NC0yLjk3M2MtMTcuMTAyLTkuNDc2LTQwLjUwOS0yMi40NjQtNjUuMTQtNDcuMTEzYy0yNC43MDQtMjQuNzAxLTM3LjcwNC00OC4xNDQtNDcuMjA5LTY1LjI1NyAgICAgYy0xLjAwMy0xLjgxMy0xLjk2NC0zLjU2MS0yLjkxMy01LjIyMWwxOC4xNzYtMTguMTQ5bDguOTM2LTguOTQ3YzExLjA5Ny0xMS4xLDExLjQwMy0yOC44MjYsMC43MjEtMzkuNTIxTDczLjM5LDguMTk0ICAgICBDNjIuNzA4LTIuNDg2LDQ0Ljk2OS0yLjE2MiwzMy44NzIsOC45MzhsLTE1LjE1LDE1LjIzN2wwLjQxNCwwLjQxMWMtNS4wOCw2LjQ4Mi05LjMyNSwxMy45NTgtMTIuNDg0LDIyLjAyICAgICBDMy43NCw1NC4yOCwxLjkyNyw2MS42MDMsMS4wOTgsNjguOTQxQy02LDEyNy43ODUsMjAuODksMTgxLjU2NCw5My44NjYsMjU0LjU0MWMxMDAuODc1LDEwMC44NjgsMTgyLjE2Nyw5My4yNDgsMTg1LjY3NCw5Mi44NzYgICAgIGM3LjYzOC0wLjkxMywxNC45NTgtMi43MzgsMjIuMzk3LTUuNjI3YzcuOTkyLTMuMTIyLDE1LjQ2My03LjM2MSwyMS45NDEtMTIuNDNsMC4zMzEsMC4yOTRsMTUuMzQ4LTE1LjAyOSAgICAgQzM1MC42MzEsMzAzLjUyNywzNTAuOTUsMjg1Ljc5NSwzNDAuMjczLDI3NS4wODN6IiBmaWxsPSIjZmZmZmZmIi8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" alt="phone"/>
+                    <?php echo $tel; ?>
+                </a>
             </div>
             <h3><?php _e("[:en]Write us a Letter[:ua]Напишіть нам Листа[:]"); ?></h3>
 			<?php echo do_shortcode('[contact-form-7 id="4" title="Contact Form"]'); ?>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <h2>Map</h2>
+            <h3><?php _e("[:en]Come to Visit us[:ua]Завітайте в Гості[:]"); ?></h3>
         </div>
     </section>
+    <?php if ( $map = get_field('map') ) :
+        echo do_shortcode('[googlemap id="map" infobox="'. $map['address'] .'" coordinates="' .$map['lat']. ', ' .$map['lng']. '"][{"featureType":"all","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#232323"}]},{"featureType":"all","elementType":"geometry.stroke","stylers":[{"visibility":"on"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"poi.attraction","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"poi.attraction","elementType":"geometry.stroke","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#c50000"},{"lightness":17},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#0f252e"},{"lightness":17}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#22bbb4"}]}][/googlemap]');
+    endif; ?>
 
 <?php get_footer(); ?>

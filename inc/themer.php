@@ -2,7 +2,7 @@
 
 /* BEGIN: Theme config params*/
 
-//define ('GOOGLEMAPS', TRUE);
+define ('GOOGLEMAPS', TRUE);
 define ('HOME_PAGE_ID', get_option('page_on_front'));
 define ('BLOG_ID', get_option('page_for_posts'));
 define ('POSTS_PER_PAGE', get_option('posts_per_page'));
