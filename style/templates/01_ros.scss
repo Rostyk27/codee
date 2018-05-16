@@ -353,7 +353,7 @@
   li {padding-bottom: rem(15)}
 }
 .contact_row {
-  margin-bottom: rem(75);
+  margin-bottom: rem(60);
   @include rwd-min(415) {
     @include flexbox;
     @include align-items(center);
