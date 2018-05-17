@@ -314,7 +314,10 @@
 
 
 // what we do
-.we_do_columns {padding-top: rem(30)}
+.we_do_columns {
+  padding-top: rem(15);
+  @include rwd-min(1441) {padding-top: rem(30)}
+}
 .we_do_col {
   margin-bottom: rem(90);
   @include rwd-max(1024) {
@@ -349,17 +352,16 @@
   background: linear-gradient(120deg, $cl 10%, $tx 115%);
   .container {width: 460px}
   h2 {color: #fff}
-  ul {padding-bottom: rem(30)}
-  li {padding-bottom: rem(15)}
 }
 .contact_row {
-  margin-bottom: rem(60);
+  margin-bottom: rem(45);
   @include rwd-min(415) {
     @include flexbox;
     @include align-items(center);
     @include justify-content(space-between);
   }
   @include rwd-max(414) {text-align: center}
+  @include rwd-min(1441) {margin-bottom: rem(60)}
   a {
     color: #fff;
     font-size: 112.5%;
@@ -375,6 +377,7 @@
 }
 #map {
   color: $tx;
-  @include rwd-range(1024, 768) {height: 450px !important}
-  @include rwd-min(1025) {height: 550px !important}
+  @include rwd-range(1024, 768) {height: 400px !important}
+  @include rwd-range(1440, 1025) {height: 450px !important}
+  @include rwd-min(1441) {height: 550px !important}
 }

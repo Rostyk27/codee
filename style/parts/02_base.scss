@@ -38,7 +38,8 @@
 // cf7
 div.wpcf7 {
   position: relative;
-  padding-bottom: rem(120);
+  padding-bottom: rem(75);
+  @include rwd-min(1441) {padding-bottom: rem(100)}
   .wpcf7-form-control-wrap {
     display: block;
     overflow: hidden;
