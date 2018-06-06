@@ -119,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div class="button_holder"><a href="javascript:;" class="button go_next"><?php _e("[:en]Let's talk[:ua]Зконтактувати[:]"); ?></a></div>
+            <div class="button_holder"><a href="javascript:;" class="button go_next"><?php _e("[:en]Let's talk[:ua]Поспілкуватись[:]"); ?></a></div>
         </div>
     </section>
 

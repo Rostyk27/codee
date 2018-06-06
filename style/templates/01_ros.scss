@@ -89,27 +89,25 @@
   .rm_btn {margin: 0 7px}
 }
 .pf_item_details {
-  //@extend %ani;
   display: none;
   color: #fff;
-  width: 600px;
-  max-width: 80%;
+  width: 540px;
+  max-width: 90%;
   background: $tx;
   font-family: $ff;
-  //opacity: 0;
-  //@include transform(translateY(-70px));
-  .fancybox-slide--complete & {
-    //opacity: 1;
-    //@include transform(translateY(-40px));
-  }
+  padding: 24px 22px;
+  box-shadow: 0 0 8px $cl;
+  @include rwd-max(480) {padding: 16px}
   h3 {color: $cl}
   .pf_cats {
+    padding-top: rem(21);
     small {
       color: $cl;
       text-transform: lowercase;
     }
   }
 }
+.fancybox-close-small:focus:after {outline: none}
 
 
 .rm_btn {
@@ -143,8 +141,29 @@
   position: relative;
   z-index: 1;
   h2 {color: #fff}
-  ul {list-style: inside disc}
-  li {padding-bottom: rem(15)}
+  h4 {padding: rem(9) 0 rem(21)}
+  li {
+    padding: 0 0 rem(15) rem(21);
+    &:before {
+      width: 6px;
+      height: 6px;
+    }
+  }
+}
+.we_are_content,
+.we_do_desc {
+  li {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      background: #fff;
+      border-radius: 50%;
+      @include rwd-min(1025) {top: 8px}
+    }
+  }
 }
 
 #skills_list {
@@ -338,8 +357,20 @@
   margin-top: rem(39);
   border-left: 2px solid $cl;
   padding: rem(6) rem(21) 0 rem(21);
-  > *:last-child {padding-bottom: rem(6)}
-  p {font-size: 94%}
+  @include rwd-min(1025) {
+    p {font-size: 94%}
+    ul {font-size: 87.5%}
+  }
+  li {
+    padding: 0 0 rem(6) rem(15);
+    &:before {
+      width: 4px;
+      height: 4px;
+    }
+  }
+  ul:last-child li:last-child,
+  p:last-child {padding-bottom: 5px}
+  .jEmpty {line-height: 0}
 }
 
 
