@@ -21,7 +21,6 @@ function tt_add_jscss() {
 	wp_enqueue_script('jquery', get_stylesheet_directory_uri(). '/js/_jquery.js', false, null, true);
 	wp_enqueue_script('libs', get_stylesheet_directory_uri(). '/js/libs.js', array('jquery'), null, true);
 	wp_enqueue_script('logic', get_stylesheet_directory_uri(). '/js/logic.js', array('libs'), null, true);
-	wp_enqueue_script('init', get_stylesheet_directory_uri(). '/js/init.js', array('libs'), null, true);
 
 	wp_enqueue_style('libs', get_stylesheet_directory_uri(). '/style/libs.css' );
 	wp_enqueue_style('style', get_stylesheet_directory_uri(). '/style/style.css' );
