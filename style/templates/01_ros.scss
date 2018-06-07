@@ -328,6 +328,30 @@
       left: auto !important;
     }
   }
+  @include rwd-range(1279, 1025) {
+    &.skill_1,
+    &.skill_2,
+    &.skill_3,
+    &.skill_4,
+    &.skill_5,
+    &.skill_6,
+    &.skill_7,
+    &.skill_8,
+    &.skill_16,
+    &.skill_17,
+    &.skill_18 {margin-left: -3%}
+    &.skill_9,
+    &.skill_10,
+    &.skill_11,
+    &.skill_12,
+    &.skill_13,
+    &.skill_14,
+    &.skill_15,
+    &.skill_19,
+    &.skill_20,
+    &.skill_21,
+    &.skill_22 {margin-right: -3%}
+  }
 }
 
 
