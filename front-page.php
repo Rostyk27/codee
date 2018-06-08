@@ -2,7 +2,7 @@
 
     <div class="top_panel" style="background-image: url(<?php the_field('background-top') ?>);">
         <div class="container">
-            <h1><?php _e("[:en]We<br> make[:ua]Ми<br> створюємо[:]"); ?> <b><span class="element" data-words="<?php echo get_field('appears_text') ?>"></span></b> <?php _e("[:en]websites[:ua]сайти[:]"); ?></h1>
+            <h1><?php _e("[:en]We<br> create[:ua]Ми<br> створюємо[:]"); ?> <b><span class="element" data-words="<?php echo get_field('appears_text') ?>"></span></b> <?php _e("[:en]websites[:ua]сайти[:]"); ?></h1>
         </div>
     </div>
 
