@@ -60,15 +60,6 @@ var parallax = new Parallax(scene);
 $(document).ready(function() {
     'use strict';
 
-    var typed = new Typed(".element", {
-        strings: $(".element").data('words').split(' '),
-        startDelay: 1000,
-        typeSpeed: 120,
-        loop: true,
-        backSpeed: 80,
-        backDelay: 1500
-    });
-
     //  hamburger + menu
     $('.nav_icon').on('click', function() {
         $(this).toggleClass('is_active').next().stop().toggleClass('is_open');
@@ -140,6 +131,15 @@ $(document).ready(function() {
 
 $(window).on('load', function() {
     'use strict';
+
+    var typed = new Typed(".element", {
+        strings: $(".element").data('words').split(' '),
+        startDelay: 1000,
+        typeSpeed: 120,
+        loop: true,
+        backSpeed: 80,
+        backDelay: 1500
+    });
 
     var hash = window.location.hash,
         $window = $(window),
