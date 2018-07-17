@@ -130,7 +130,16 @@ section {
   @include rwd-range(1440, 1025) {padding-top: rem(75)}
 }
 
-.page404 {padding: rem(60) 0}
+.error404 {
+  .nav_icon,
+  .menu_holder {display: none}
+}
+.page404 {
+  text-align: center;
+  height: calc(100vh - 200px);
+  padding: rem(45) 0 rem(90);
+  @media screen and (max-width: 1024px) and (orientation: landscape) {height: auto}
+}
 
 
 @import 'parts/02_base';
