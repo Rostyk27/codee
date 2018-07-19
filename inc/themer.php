@@ -211,6 +211,7 @@ function wpa_body_classes( $classes ){
 	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
 
 	$browser = $_SERVER[ 'HTTP_USER_AGENT' ];
+	$ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
 
 	// Mac, PC ...or Linux
 	if ( preg_match( "/Mac/", $browser ) ){
@@ -251,6 +252,8 @@ function wpa_body_classes( $classes ){
 		} elseif ( preg_match( "/MSIE 9.0/", $browser ) ){
 			$classes[] = 'ie9';
 		}
+	} elseif ( preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0; rv:11.0') !== false) ) {
+		$classes[] = 'is_ie';
 	} elseif ( preg_match( "/Firefox/", $browser ) && preg_match( "/Gecko/", $browser ) ) {
 		$classes[] = 'firefox';
 		preg_match( "/Firefox\/(\d)/si", $browser, $matches);

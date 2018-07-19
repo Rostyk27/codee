@@ -28,6 +28,7 @@ body {
   min-height: 100vh;
   background: $tx;
   opacity: 1;
+  &.is_ie {overflow: hidden}
   @include rwd-max(1024) { &.is_overflow {overflow: hidden} }
   @include rwd-max(767) {font-size: $fp * 0.9375}
 }

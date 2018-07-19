@@ -6,3 +6,58 @@ footer {
   -moz-user-select: none;
   user-select: none;
 }
+
+
+.is_detect_ie {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $tx;
+  padding: rem(30) 0;
+  text-align: center;
+  overflow: auto;
+  z-index: 88;
+  @include rwd-max(767) {padding-top: rem(60)}
+  .is_detect_ie__inner {
+    width: 800px;
+    max-width: 86%;
+    @include rwd-min(768) {padding-bottom: rem(90)}
+  }
+  .is_ie_info {
+    font-weight: 300;
+    padding-bottom: rem(60);
+    @include rwd-max(640) { br {display: none} }
+  }
+  .modern_browsers {
+    @include rwd-max(767) {@include flex-wrap(wrap)}
+  }
+  .browser_item {
+    width: 50%;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0 rem(15) 40px;
+    @include rwd-min(768) {
+      width: 25%;
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+    img {
+      max-height: 64px;
+      margin: 0 auto 15px;
+      @include rwd-min(768) {
+        max-height: 100px;
+        margin-bottom: 25px;
+      }
+    }
+    figcaption {
+      @extend %ani;
+      display: inline-block;
+    }
+    @include hover {
+      figcaption {box-shadow: 0 2px $cl}
+    }
+  }
+}
