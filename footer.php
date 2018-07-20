@@ -11,9 +11,9 @@
     <div class="is_detect_ie flex_center">
         <div class="is_detect_ie__inner">
             <div class="is_ie_info">
-                <h4>Thanks for visiting our site!</h4>
-                <p>Unfortunately, you are trying to reach it via Internet Explorer which <br> we highly don't recommend to use. Because it's far out of date.</p>
-                <p>Please use one of the modern browsers to enjoy the Web.</p>
+                <h4><?php _e( "[:en]Thanks for visiting our site![:ua]Дякуємо, що завітали на наш сайт![:]" ); ?></h4>
+                <p><?php _e( "[:en]Unfortunately, you are trying to reach it via Internet Explorer which <br> we highly don't recommend to use. Because it's far out of date.[:ua]На жаль, Ви намагаєтесь переглянути його через Internet Explorer, який ми не рекомендуємо використовувати. Тому що він дуже застарілий.[:]" ); ?></p>
+                <p><?php _e( "[:en]Please use one of the modern browsers to enjoy the Web.[:ua]Будь ласка, скористайтесь одним з сучасних браузерів, щоб насолоджуватись Вебом сповна.[:]" ); ?></p>
             </div>
             <div class="modern_browsers flex_start">
                 <a class="browser_item" href="https://www.google.com/chrome/" target="_blank" rel="noopener">
